@@ -1,0 +1,26 @@
+{
+  "title": "Experience",
+  "entries": [
+    {
+      "title": "Software Engineer",
+      "company": "Company A",
+      "period": "Jan 2024 — Present",
+      "subtitle": "Full-stack development on a cloud-native platform",
+      "description": "Built and maintained microservices handling 10k+ requests/min. Migrated legacy monolith to event-driven architecture. Led code reviews and mentored junior engineers."
+    },
+    {
+      "title": "Backend Developer",
+      "company": "Company B",
+      "period": "Mar 2022 — Dec 2023",
+      "subtitle": "API platform and data pipeline engineering",
+      "description": "Designed RESTful APIs consumed by web and mobile clients. Implemented CI/CD pipelines reducing deployment time by 60%. Worked extensively with PostgreSQL, Redis, and Kubernetes."
+    },
+    {
+      "title": "Junior Developer",
+      "company": "Company C",
+      "period": "Jun 2020 — Feb 2022",
+      "subtitle": "Web application development",
+      "description": "Developed features for a SaaS product used by 5k+ customers. Built dashboards and reporting tools with React and TypeScript. Wrote integration tests achieving 85%+ coverage."
+    }
+  ]
+}

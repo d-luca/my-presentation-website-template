@@ -1,0 +1,41 @@
+{
+  "title": "Projects",
+  "projects": [
+    {
+      "id": "project-1",
+      "icon": "grid",
+      "name": "Project Alpha",
+      "brief": "A design system for internal tools",
+      "description": "A comprehensive design system built for internal product teams. Covers components, tokens, patterns, and documentation — designed to ship faster with consistency.",
+      "tags": ["Design System", "React", "Tokens", "Documentation"],
+      "links": [
+        { "label": "Live Demo", "href": "#" },
+        { "label": "Source Code", "href": "#" }
+      ]
+    },
+    {
+      "id": "project-2",
+      "icon": "layers",
+      "name": "Project Beta",
+      "brief": "Real-time collaboration platform",
+      "description": "A real-time collaboration tool that lets teams work together on complex projects. Features live cursors, presence indicators, and conflict-free editing.",
+      "tags": ["WebSockets", "CRDT", "TypeScript"],
+      "links": [
+        { "label": "Live Demo", "href": "#" },
+        { "label": "Case Study", "href": "#" }
+      ]
+    },
+    {
+      "id": "project-3",
+      "icon": "sun",
+      "name": "Project Gamma",
+      "brief": "AI-powered content generator",
+      "description": "An AI tool that generates polished marketing content from brief inputs. Handles copy, layout suggestions, and brand-consistent formatting automatically.",
+      "tags": ["AI/ML", "Python", "React"],
+      "links": [
+        { "label": "Live Demo", "href": "#" },
+        { "label": "Source Code", "href": "#" }
+      ]
+    }
+  ]
+}

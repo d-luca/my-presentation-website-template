@@ -1,0 +1,15 @@
+{
+  "title": "Looking For",
+  "intro": "Currently exploring opportunities where I can contribute to meaningful products and grow as a developer.",
+  "items": [
+    "Software engineering roles at early-stage startups or scale-ups",
+    "Projects that involve real infrastructure and distributed systems",
+    "Collaborative teams that value clean code and good testing practices",
+    "Open-source contributions and side projects"
+  ],
+  "cvButton": {
+    "show": true,
+    "label": "Download CV",
+    "href": "#"
+  }
+}

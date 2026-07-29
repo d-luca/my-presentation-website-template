@@ -1,0 +1,22 @@
+{
+  "title": "Contact",
+  "intro": "I'd love to hear from you. Whether it's a project idea, a collaboration, or just a hello — reach out.",
+  "links": [
+    {
+      "label": "Email",
+      "href": "mailto:hello@luca.dev"
+    },
+    {
+      "label": "Twitter / X",
+      "href": "#"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/"
+    }
+  ]
+}

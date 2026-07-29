@@ -1,0 +1,10 @@
+{
+  "navigationHeader": true,
+  "hero": true,
+  "about": true,
+  "experience": true,
+  "lookingFor": true,
+  "projects": true,
+  "contact": true,
+  "footer": true
+}
