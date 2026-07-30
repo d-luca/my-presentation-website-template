@@ -8,6 +8,7 @@ import Image from "next/image";
 
 export function ProjectCard({ project }: { project: Project }) {
   const [isOpen, setIsOpen] = useState(false);
+  const detailsId = `${project.id}-details`;
 
   const handleClick = () => {
     setIsOpen((prev) => !prev);
@@ -24,12 +25,13 @@ export function ProjectCard({ project }: { project: Project }) {
         onClick={handleClick}
         className="flex w-full cursor-pointer items-center gap-3 px-4 py-4 sm:gap-4 sm:px-6 sm:py-5 transition-[background] user-select-none hover:bg-hover-bg sm:flex-row flex-col text-left"
         aria-expanded={isOpen}
+        aria-controls={detailsId}
       >
         <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-project-icon transition-transform duration-300 group-hover:scale-105 sm:h-11 sm:w-11">
           {project.image ? (
             <Image
               src={project.image}
-              alt={`${project.name} icon`}
+              alt=""
               width={44}
               height={44}
               className="h-full w-full object-cover"
@@ -43,14 +45,15 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <h3 className="mb-0.5 font-display text-[15px] font-semibold tracking-tight text-fg transition-colors duration-200 group-hover:text-accent sm:text-[16px]">
+          <span className="mb-0.5 block font-display text-[15px] font-semibold tracking-tight text-fg transition-colors duration-200 group-hover:text-accent sm:text-[16px]">
             {project.name}
-          </h3>
+          </span>
           <p className="overflow-hidden text-sm text-muted sm:text-sm whitespace-nowrap text-ellipsis transition-colors duration-200">
             {project.brief}
           </p>
         </div>
         <span
+          aria-hidden="true"
           className={`shrink-0 text-muted transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""} sm:ml-auto`}
         >
           <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none">
@@ -66,6 +69,9 @@ export function ProjectCard({ project }: { project: Project }) {
       </button>
 
       <div
+        id={detailsId}
+        aria-hidden={!isOpen}
+        inert={!isOpen}
         className={cn(
           "grid transition-[grid-template-rows] duration-300 ease-out",
           isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
@@ -106,21 +112,26 @@ export function ProjectCard({ project }: { project: Project }) {
             </div>
 
             <div className="flex flex-wrap gap-x-4 gap-y-1">
-              {project.links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    link.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className="inline-flex text-[13px] sm:text-sm items-center gap-1.5 text-sm font-medium text-accent transition-opacity hover:opacity-70"
-                >
-                  <span className="relative">{link.label}</span>
-                </a>
-              ))}
+              {project.links
+                .filter((link) => link.href !== "#")
+                .map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      link.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="inline-flex text-[13px] sm:text-sm items-center gap-1.5 text-sm font-medium text-accent transition-opacity hover:opacity-70"
+                  >
+                    <span className="relative">{link.label}</span>
+                    {link.href.startsWith("http") && (
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    )}
+                  </a>
+                ))}
             </div>
           </div>
         </div>

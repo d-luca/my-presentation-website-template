@@ -10,6 +10,7 @@ export function ProjectIcon({
   const icons: Record<string, ReactNode> = {
     grid: (
       <svg
+        aria-hidden="true"
         className={className}
         viewBox="0 0 24 24"
         strokeWidth="1.6"
@@ -23,6 +24,7 @@ export function ProjectIcon({
     ),
     layers: (
       <svg
+        aria-hidden="true"
         className={className}
         viewBox="0 0 24 24"
         strokeWidth="1.6"
@@ -35,6 +37,7 @@ export function ProjectIcon({
     ),
     sun: (
       <svg
+        aria-hidden="true"
         className={className}
         viewBox="0 0 24 24"
         strokeWidth="1.6"

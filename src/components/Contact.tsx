@@ -56,20 +56,28 @@ export default function Contact() {
       <SectionTitle>{title}</SectionTitle>
       <SectionParagraph className="mb-6">{intro}</SectionParagraph>
       <div className="flex flex-wrap gap-5">
-        {links.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            target={link.href.startsWith("http") ? "_blank" : undefined}
-            rel={
-              link.href.startsWith("http") ? "noopener noreferrer" : undefined
-            }
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-opacity hover:opacity-70"
-          >
-            {icons[link.label.toLowerCase().replace(/\s*\/*\s*/g, "")] ?? null}
-            {link.label}
-          </a>
-        ))}
+        {links
+          .filter((link) => link.href !== "#")
+          .map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={
+                link.href.startsWith("http") ? "noopener noreferrer" : undefined
+              }
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-opacity hover:opacity-70"
+            >
+              <span aria-hidden="true">
+                {icons[link.label.toLowerCase().replace(/\s*\/*\s*/g, "")] ??
+                  null}
+              </span>
+              {link.label}
+              {link.href.startsWith("http") && (
+                <span className="sr-only"> (opens in a new tab)</span>
+              )}
+            </a>
+          ))}
       </div>
     </Section>
   );

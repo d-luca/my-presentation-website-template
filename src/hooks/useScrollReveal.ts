@@ -3,33 +3,40 @@
 import { useEffect, useRef } from "react";
 
 export function useScrollReveal(options?: IntersectionObserverInit) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      el.classList.add("visible");
+      return;
+    }
 
     const observerOptions: IntersectionObserverInit = {
       threshold: 0.15,
       ...options,
     };
 
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
+    el.classList.add("reveal-pending");
 
-      observer.observe(el);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
 
-      return () => observer.disconnect();
-    } else {
-      el.classList.add("visible");
-    }
+    observer.observe(el);
+
+    return () => observer.disconnect();
   }, [options]);
 
   return ref;

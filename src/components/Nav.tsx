@@ -31,7 +31,10 @@ const socialIcons: Record<string, React.ReactNode> = {
 export default function Nav() {
   const { name, logoHref, links, socialLinks } = navData;
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-[rgba(250,250,250,0.85)] backdrop-blur-md">
+    <nav
+      aria-label="Primary navigation"
+      className="sticky top-0 z-50 border-b border-border bg-[rgba(250,250,250,0.85)] backdrop-blur-md"
+    >
       <div className="mx-auto flex max-w-180 items-center justify-between gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5">
         <Link
           href={logoHref}
@@ -59,12 +62,14 @@ export default function Nav() {
             <a
               key={social.label}
               href={social.href}
-              aria-label={social.ariaLabel}
+              aria-label={`${social.ariaLabel} (opens in a new tab)`}
               target="_blank"
               rel="noopener noreferrer"
-              className="opacity-[0.45] transition-opacity hover:opacity-[0.85]"
+              className="-m-2 inline-flex size-9 items-center justify-center opacity-[0.45] transition-opacity hover:opacity-[0.85]"
             >
-              {socialIcons[social.label.toLowerCase()] ?? null}
+              <span aria-hidden="true">
+                {socialIcons[social.label.toLowerCase()] ?? null}
+              </span>
             </a>
           ))}
         </div>

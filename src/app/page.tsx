@@ -21,15 +21,20 @@ export default function Home() {
   } = sectionsVisibilityData;
 
   return (
-    <main className="flex flex-1 flex-col">
+    <>
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       {navigationHeader && <Nav />}
-      {hero && <Hero />}
-      {about && <About />}
-      {experience && <Experience />}
-      {lookingFor && <LookingFor />}
-      {projects && <Projects />}
-      {contact && <Contact />}
+      <main id="main-content" className="flex flex-1 flex-col">
+        {hero && <Hero />}
+        {about && <About />}
+        {experience && <Experience />}
+        {lookingFor && <LookingFor />}
+        {projects && <Projects />}
+        {contact && <Contact />}
+      </main>
       {footer && <Footer />}
-    </main>
+    </>
   );
 }
