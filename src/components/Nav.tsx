@@ -1,4 +1,3 @@
-import Link from "next/link";
 import navData from "@/data/nav.json";
 import ThemeSelector from "@/components/ThemeSelector";
 
@@ -37,12 +36,12 @@ export default function Nav() {
       className="sticky top-0 z-50 border-b border-border bg-nav-bg backdrop-blur-md"
     >
       <div className="mx-auto flex max-w-180 items-center justify-between gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5">
-        <Link
+        <a
           href={logoHref}
           className="shrink-0 font-display text-sm font-semibold tracking-tight text-fg"
         >
           {name}
-        </Link>
+        </a>
 
         {/* Desktop nav links */}
         <ul className="hidden items-center gap-6 sm:flex">
