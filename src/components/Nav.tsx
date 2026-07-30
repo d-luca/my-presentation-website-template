@@ -38,7 +38,7 @@ export default function Nav() {
       <div className="mx-auto flex max-w-180 items-center justify-between gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5">
         <Link
           href={logoHref}
-          className="font-display text-sm font-semibold tracking-tight text-fg shrink-0"
+          className="shrink-0 font-display text-sm font-semibold tracking-tight text-fg"
         >
           {name}
         </Link>
@@ -49,7 +49,7 @@ export default function Nav() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-xs font-medium uppercase tracking-wide text-muted transition-colors hover:text-fg"
+                className="text-xs font-medium tracking-wide text-muted uppercase transition-colors hover:text-fg"
               >
                 {link.label}
               </a>

@@ -18,16 +18,16 @@ export function ProjectCard({ project }: { project: Project }) {
     <div
       id={project.id}
       data-od-id={project.id}
-      className="group mb-4 overflow-hidden rounded-xl border border-border bg-surface transition-[border-color,box-shadow,transform] duration-300  hover:border-card-hover-border hover:shadow-[0_2px_8px_var(--shadow-subtle)]"
+      className="group mb-4 overflow-hidden rounded-xl border border-border bg-surface transition-[border-color,box-shadow,transform] duration-300 hover:border-card-hover-border hover:shadow-[0_2px_8px_var(--shadow-subtle)]"
     >
       <button
         type="button"
         onClick={handleClick}
-        className="flex w-full cursor-pointer items-center gap-3 px-4 py-4 sm:gap-4 sm:px-6 sm:py-5 transition-[background] user-select-none hover:bg-hover-bg sm:flex-row flex-col text-left"
+        className="user-select-none flex w-full cursor-pointer flex-col items-center gap-3 px-4 py-4 text-left transition-[background] hover:bg-hover-bg sm:flex-row sm:gap-4 sm:px-6 sm:py-5"
         aria-expanded={isOpen}
         aria-controls={detailsId}
       >
-        <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-project-icon transition-transform duration-300 group-hover:scale-105 sm:h-11 sm:w-11">
+        <div className="bg-project-icon relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg transition-transform duration-300 group-hover:scale-105 sm:h-11 sm:w-11">
           {project.image ? (
             <Image
               src={project.image}
@@ -48,7 +48,7 @@ export function ProjectCard({ project }: { project: Project }) {
           <span className="mb-0.5 block font-display text-[15px] font-semibold tracking-tight text-fg transition-colors duration-200 group-hover:text-accent sm:text-[16px]">
             {project.name}
           </span>
-          <p className="overflow-hidden text-sm text-muted sm:text-sm whitespace-nowrap text-ellipsis transition-colors duration-200">
+          <p className="overflow-hidden text-sm text-ellipsis whitespace-nowrap text-muted transition-colors duration-200 sm:text-sm">
             {project.brief}
           </p>
         </div>
@@ -83,8 +83,8 @@ export function ProjectCard({ project }: { project: Project }) {
               className={cn(
                 "mb-4 text-[15px] leading-relaxed text-muted transition-[opacity,transform] duration-300",
                 isOpen
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-2",
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-2 opacity-0",
               )}
             >
               {project.description}
@@ -97,8 +97,8 @@ export function ProjectCard({ project }: { project: Project }) {
                   className={cn(
                     "rounded-md bg-card-tag-bg px-2 py-0.5 text-[12px] font-medium tracking-wide text-muted transition-[opacity,transform,filter] duration-300 hover:scale-105 hover:filter-none sm:px-2.5 sm:py-1 sm:text-xs",
                     isOpen
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 -translate-y-1.5",
+                      ? "translate-y-0 opacity-100"
+                      : "-translate-y-1.5 opacity-0",
                   )}
                   style={{
                     transitionDelay: isOpen
@@ -124,7 +124,7 @@ export function ProjectCard({ project }: { project: Project }) {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="inline-flex text-[13px] sm:text-sm items-center gap-1.5 text-sm font-medium text-accent transition-opacity hover:opacity-70"
+                    className="inline-flex items-center gap-1.5 text-sm text-[13px] font-medium text-accent transition-opacity hover:opacity-70 sm:text-sm"
                   >
                     <span className="relative">{link.label}</span>
                     {link.href.startsWith("http") && (

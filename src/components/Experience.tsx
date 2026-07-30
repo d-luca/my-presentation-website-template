@@ -23,7 +23,7 @@ function ExperienceCard({
         <h3 className="font-display text-base font-semibold tracking-tight text-fg">
           {title} — {company}
         </h3>
-        <span className="text-xs text-muted whitespace-nowrap">{period}</span>
+        <span className="text-xs whitespace-nowrap text-muted">{period}</span>
       </div>
       <p className="mb-2 text-sm text-muted">{subtitle}</p>
       <p className="text-[15px] leading-relaxed text-fg">{description}</p>

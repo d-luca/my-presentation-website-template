@@ -29,7 +29,7 @@ export default function LookingFor() {
         <div className="mt-6">
           <a
             href={cvButton.href}
-            className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5.5 py-2.5 text-sm font-medium text-fg transition-[background] hover:bg-hover-bg active:scale-[0.98] font-body"
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5.5 py-2.5 font-body text-sm font-medium text-fg transition-[background] hover:bg-hover-bg active:scale-[0.98]"
           >
             <svg
               aria-hidden="true"

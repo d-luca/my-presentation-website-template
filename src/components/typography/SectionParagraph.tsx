@@ -12,7 +12,7 @@ export function SectionParagraph({
   return (
     <p
       className={cn(
-        "max-w-[80ch] text-[17px] leading-relaxed text-muted text-pretty",
+        "max-w-[80ch] text-[17px] leading-relaxed text-pretty text-muted",
         className,
       )}
     >
