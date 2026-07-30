@@ -30,9 +30,38 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "light",
+  colorScheme: "light dark",
   themeColor: "#fcfcfd",
 };
+
+const themeScript = `
+  (() => {
+    const root = document.documentElement;
+    let savedTheme = null;
+
+    try {
+      const storedTheme = localStorage.getItem("theme");
+      if (["light", "dark"].includes(storedTheme)) {
+        savedTheme = storedTheme;
+      }
+    } catch {}
+
+    const resolvedTheme =
+      savedTheme ??
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+
+    root.dataset.theme = resolvedTheme;
+    root.style.colorScheme = resolvedTheme;
+
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    themeColor?.setAttribute(
+      "content",
+      resolvedTheme === "dark" ? "#17191f" : "#fcfcfd",
+    );
+  })();
+`;
 
 export default function RootLayout({
   children,
@@ -40,7 +69,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );

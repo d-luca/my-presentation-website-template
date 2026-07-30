@@ -13,11 +13,28 @@
   --color-card-tag-bg: oklch(96% 0.004 250);
   --color-project-icon-bg: oklch(92% 0.005 250);
   --color-shadow-subtle: oklch(0% 0 0 / 0.06);
+  --color-nav-bg: oklch(99% 0.002 240 / 0.85);
 
   --font-display:
     -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
   --font-body:
     -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  --color-bg: oklch(17% 0.012 250);
+  --color-surface: oklch(21% 0.012 250);
+  --color-fg: oklch(94% 0.006 250);
+  --color-muted: oklch(70% 0.012 250);
+  --color-border: oklch(30% 0.012 250);
+  --color-accent: oklch(70% 0.15 255);
+  --color-accent-hover: oklch(76% 0.13 255);
+  --color-hover-bg: oklch(24% 0.012 250);
+  --color-card-hover-border: oklch(42% 0.015 250);
+  --color-card-tag-bg: oklch(26% 0.012 250);
+  --color-project-icon-bg: oklch(28% 0.012 250);
+  --color-shadow-subtle: oklch(0% 0 0 / 0.3);
+  --color-nav-bg: oklch(17% 0.012 250 / 0.85);
 }
 
 @layer base {
@@ -39,6 +56,9 @@
     background-color: var(--color-bg);
     color: var(--color-fg);
     line-height: 1.6;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -54,6 +74,15 @@
 }
 
 @layer utilities {
+  .theme-toggle__light-icon,
+  :root[data-theme="dark"] .theme-toggle__dark-icon {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .theme-toggle__light-icon {
+    display: block;
+  }
+
   .reveal {
     opacity: 1;
     transform: translateY(0);

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import navData from "@/data/nav.json";
+import ThemeSelector from "@/components/ThemeSelector";
 
 const socialIcons: Record<string, React.ReactNode> = {
   linkedin: (
@@ -33,7 +34,7 @@ export default function Nav() {
   return (
     <nav
       aria-label="Primary navigation"
-      className="sticky top-0 z-50 border-b border-border bg-[rgba(250,250,250,0.85)] backdrop-blur-md"
+      className="sticky top-0 z-50 border-b border-border bg-nav-bg backdrop-blur-md"
     >
       <div className="mx-auto flex max-w-180 items-center justify-between gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5">
         <Link
@@ -58,6 +59,7 @@ export default function Nav() {
         </ul>
 
         <div className="flex shrink-0 items-center gap-3 sm:gap-4 sm:border-l sm:border-border sm:pl-6">
+          <ThemeSelector />
           {socialLinks.map((social) => (
             <a
               key={social.label}
